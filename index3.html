@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- REACT LIBRARY -->
+  <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+  <!-- REACT DOM LIBRARY -->
+  <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+  <!-- BABEL LIBRARY -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>FriendLy</title>
+</head>
+<body>
+  <div id="app">React has not rendered yet</div>
+
+  <script type="text/babel">
+
+    // // FriendLy Complex Component
+    // function FriendLy(props) {
+    //   var friendlyStyle = {
+    //     display:"inline-block",
+    //     margin: 20,
+    //     height: 300,
+    //     width: 200,
+    //     padding: 0,
+    //     backgroundColor: "#FFF",
+    //     WebkitFilter: "drop-shadow(0px 0px 5px #555)",
+    //     filter: "drop-shadow(0px 0px 5px #555)"
+    //   }
+    //   return(
+    //     <div style={friendlyStyle}>
+    //       <Avatar img={props.img}/>
+    //       <UserName name ={props.name}/>
+    //       <GetConnected/>
+    //     </div>
+    //   );
+    // }
+
+    function FriendLy (props) {
+        var people = props.people;
+
+        var peopleItem = people.map(function(person){
+            var friendlyStyle = {
+                display:"inline-block",
+                margin: 20,
+                height: 300,
+                width: 200,
+                padding: 0,
+                backgroundColor: "#FFF",
+                WebkitFilter: "drop-shadow(0px 0px 5px #555)",
+                filter: "drop-shadow(0px 0px 5px #555)"
+            };
+
+            return <div style={friendlyStyle}>
+                        <Avatar img={person.img}/>
+                        <UserName name = {person.name}/>
+                        <GetConnected/>
+                    </div>
+        });
+
+        return(
+            <div>{peopleItem}</div>
+        );
+
+    }
+
+    // Avatar Component
+    function Avatar(props) {
+      var avatarStyle = {
+        marginLeft: 25,
+        marginTop: 20,
+        width: 150,
+        height: 150,
+        borderRadius: "50%"
+      }
+      return(
+        <img src={props.img} alt="profile pic" style={avatarStyle}/>
+      );
+    }
+
+
+    // UserName Component
+    function UserName(props) {
+      var nameStyle = {
+        fontSize: 24,
+        fontFamily: "Arial, Helvetica, sans-serif",
+        margin: 20,
+        textAlign:"center"
+
+      }
+      return(
+        <h1 style={nameStyle}>{props.name}</h1>
+      );
+    }
+
+    // GetConnected Complex Component
+    function GetConnected() {
+        var getConnectedStyle = {
+            marginLeft: 15
+        }
+      return(
+        <div style ={getConnectedStyle}>
+          <Like/>
+          <Share/>
+          <Add/>
+        </div>
+      );
+    }
+
+      var iconStyle = {
+        margin: 20
+      }
+
+      // Like Component
+      function Like() {
+        return(
+          <i className="fa fa-thumbs-o-up" aria-hidden="true" style={iconStyle}></i>
+        );
+      }
+
+      // ShareComponent
+      function Share() {
+        return (
+          <i className="fa fa-share" aria-hidden="true" style={iconStyle}></i>
+        );
+      }
+
+      // Add Component
+      function Add() {
+        return(
+          <i className="fa fa-users" aria-hidden="true" style={iconStyle}></i>
+        );
+      }
+    var people=[{name: "Anuj", img: "https://avatars3.githubusercontent.com/u/53449807?s=460&u=c37648ed68eecf7578c417ac1fcfe412ade25d7a&v=4"},
+                {name: "Alexa", img:"https://media-exp1.licdn.com/dms/image/C4E03AQEnfqBfqG_6ZQ/profile-displayphoto-shrink_400_400/0/1605024042100?e=1616630400&v=beta&t=Exy1jZynrFVdMWAqF1zKb-L6-sVAd3kDPwFv9l1ftAE"},
+                {name: "Yoni", img: "https://media-exp1.licdn.com/dms/image/C4E03AQE1l_0Vz5PQyA/profile-displayphoto-shrink_400_400/0/1604954615862?e=1616630400&v=beta&t=39jOp7GaSFbqqFlsT_JGCanNHl9SYpL92mZ2WODa02s"},
+                {name: "Malaika", img: "https://media-exp1.licdn.com/dms/image/C4E03AQGv9CuRhGq6NA/profile-displayphoto-shrink_400_400/0/1610663795445?e=1616630400&v=beta&t=JfO9BNF0zQg-dY8bvO4AFQfcbv2vsdnEo3SBj88E21Y"},
+                {name: "Matt", img: "https://media-exp1.licdn.com/dms/image/C4E03AQEl9DGpfi79hg/profile-displayphoto-shrink_400_400/0/1596600348220?e=1616630400&v=beta&t=3rdFfvejRRuYv75oGdTw7q4-M1tyvndxDhoQuso2xn0"},
+                {name: "Kunal", img: "https://media-exp1.licdn.com/dms/image/C5603AQGUV5W00O_itA/profile-displayphoto-shrink_400_400/0/1517819471588?e=1616630400&v=beta&t=9HE9cTyuaJM9u4VdNNsU42Eb-ijyTVIyKO0hfn2xnZ8"},
+                {name: "Shivam", img: "https://media-exp1.licdn.com/dms/image/C4D03AQGNM-9cgGUyVw/profile-displayphoto-shrink_400_400/0/1596167777884?e=1616630400&v=beta&t=Ez2lekEXUXMwsealiCzsM98tYMJP_hUWyNhyTWWB1is"},
+                {name: "Ashwin", img: "https://media-exp1.licdn.com/dms/image/C4E03AQFYm4O44kCS4Q/profile-displayphoto-shrink_400_400/0/1600442565018?e=1616630400&v=beta&t=2ZwrFfnrZvMGKuEaBqJ2Aw6rA7hZOM6TyBVIUDpQ8Ek"},
+                {name: "Nikhil", img: "https://media-exp1.licdn.com/dms/image/C4E03AQGVqGXyl5KCFg/profile-displayphoto-shrink_400_400/0/1517241293314?e=1616630400&v=beta&t=OyBsYzWMHLAriaU03g-ZfAEqvfQUUWJShbyw0cP1Z7Y"},
+                {name: "Archana", img: "https://media-exp1.licdn.com/dms/image/C4D03AQGXZ7XznBUj0w/profile-displayphoto-shrink_400_400/0/1575407902416?e=1616630400&v=beta&t=1oQtHzDq_pyks0_Ov5zQNLt6-pcjOpd6czoRicYkSys"}
+                ];
+    ReactDOM.render(
+        <FriendLy
+        people={people}
+        />,
+        document.getElementById("app")
+    );
+
+  </script>
+
+</body>
+</html>

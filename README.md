@@ -7,3 +7,7 @@ Created a react projects utilizing the following:
 - complex functional components
 
 - styling functional components in react
+
+- props
+
+

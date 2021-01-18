@@ -10,4 +10,8 @@ Created a react projects utilizing the following:
 
 - props
 
+- Map/Filter
+
+- Iterating through an array
+
 
